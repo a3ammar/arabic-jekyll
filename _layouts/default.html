@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 {% if page.lang %}
   {% assign current_lang = page.lang %}
-{% elsif page.url and page.url | slice: 0, 4 == "/en/" %}
+{% elsif page.url contains "/en/" %}
   {% assign current_lang = "en" %}
 {% else %}
   {% assign current_lang = "ar" %}
@@ -25,7 +25,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
@@ -45,7 +45,7 @@
           {% endif %}
 
           <div class="site-info">
-            <h1 class="site-name"><a href="{% if current_lang == 'en' %}{{ site.baseurl }}/en/{% else %}{{ site.baseurl }}/{% endif %}">{{ localized_site_name }}</a></h1></br>
+            <h1 class="site-name"><a href="{% if current_lang == 'en' %}{{ site.baseurl }}/en/{% else %}{{ site.baseurl }}/{% endif %}">{{ localized_site_name }}</a></h1>
             <p class="site-description">{{ localized_site_description }}</p>
           </div>
 
