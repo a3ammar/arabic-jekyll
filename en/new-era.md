@@ -1,6 +1,6 @@
 ---
-layout: page
-title: About
+layout: post
+title: A New Era of Artificial Intelligence
 permalink: /en/new-era/
 lang: en
 ---
