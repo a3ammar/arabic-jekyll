@@ -11,7 +11,12 @@ layout: default
 
   {% if page.date %}
     <div class="date">
-      {% if page.lang == "en" %}
+      {% assign post_lang = page.lang | default: "ar" %}
+      {% if page.url contains "/en/" %}
+        {% assign post_lang = "en" %}
+      {% endif %}
+
+      {% if post_lang == "en" %}
         Written on {{ page.date | date: "%B %d, %Y" }}
       {% else %}
         كُتب في {{ page.date | date: "%d/%m/%Y" }}
