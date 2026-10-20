@@ -6,13 +6,13 @@ lang: en
 ---
 
 <div class="posts">
-  {% assign english_posts = site.posts | where: "lang", "en" %}
+  {% assign english_posts = site.pages | where_exp: "page", "page.lang == 'en' and page.layout == 'post'" %}
   {% for post in english_posts %}
     <article class="post">
       <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
 
       <div class="entry">
-        {{ post.excerpt }}
+        {{ post.content | strip_html | truncatewords: 35 }}
       </div>
 
       <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read more</a>
