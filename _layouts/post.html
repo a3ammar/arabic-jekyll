@@ -10,7 +10,11 @@ layout: default
   </div>
 
   <div class="date">
-    كُتب في {{ page.date | date: "%d/%m/%Y" }}
+    {% if page.lang == "en" %}
+      Written on {{ page.date | date: "%B %d, %Y" }}
+    {% else %}
+      كُتب في {{ page.date | date: "%d/%m/%Y" }}
+    {% endif %}
   </div>
 
   {% include disqus.html %}

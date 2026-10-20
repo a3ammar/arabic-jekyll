@@ -1,5 +1,11 @@
 <!DOCTYPE html>
-{% assign current_lang = page.lang | default: "ar" %}
+{% if page.lang %}
+  {% assign current_lang = page.lang %}
+{% elsif page.url and page.url | slice: 0, 4 == "/en/" %}
+  {% assign current_lang = "en" %}
+{% else %}
+  {% assign current_lang = "ar" %}
+{% endif %}
 {% if current_lang == "en" %}
   {% assign localized_site_name = "AI Board" %}
   {% assign localized_site_description = "Ideas | Theories | Articles" %}
@@ -45,8 +51,8 @@
 
           <nav>
             {% if current_lang == "en" %}
-              <a href="{{ site.baseurl }}/en/">Blog</a>
-              <a href="{{ site.baseurl }}/en/about">About</a>
+              <a href="{{ site.baseurl }}/en/">Home</a>
+              <a href="{{ site.baseurl }}/en/about/">About</a>
               <a href="{{ site.baseurl }}/">العربية</a>
             {% else %}
               <a href="{{ site.baseurl }}/">المدونة</a>

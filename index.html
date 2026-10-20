@@ -3,7 +3,8 @@ layout: default
 ---
 
 <div class="posts">
-  {% for post in site.posts %}
+  {% assign arabic_posts = site.posts | where_exp: "post", "post.lang != 'en'" %}
+  {% for post in arabic_posts %}
     <article class="post">
       <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
 
